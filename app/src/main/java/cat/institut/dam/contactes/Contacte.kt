@@ -39,8 +39,8 @@ data class Contacte(
                 carrer = adreça.getString("street"),
                 ciutat = adreça.getString("city"),
                 codiPostal = adreça.getString("zipcode"),
-                latitud = geo.getString("lat").toDouble(),
-                longitud = geo.getString("lng").toDouble()
+                latitud = geo.optString("lat").toDoubleOrNull() ?: 0.0,
+                longitud = geo.optString("lng").toDoubleOrNull() ?: 0.0
             )
         }
     }
